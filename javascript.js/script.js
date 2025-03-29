@@ -1,39 +1,55 @@
-let utente = prompt("Inserisci una parola");
-let risultato = '';
-function palindroma(nome){
-for (let i = utente.length - 1; i >= 0; i--) {
-    risultato += utente[i];
-} 
-if (utente == risultato) {
-    console.log("la parola è palindroma");
+ /*
+ function checkPalindroma(string){
+    let check = string.split('').reverse().join('');
+if (string.toLowerCase() === check.toLowerCase()){
+    return true;
 }
-else {
-    console.log("la parola non è palindroma");
+else { 
+    return false;
 }
 }
-palindroma(utente);
 
-/*
-let pariDispariNumero = parseInt(prompt("pari o dispari"));
-let numeroUtente = parseInt(prompt("inserisci un numero da 1 a 5"));
-let computer = Math.floor(Math.random() * 5) + 1;
-console.log(computer);
-let result;
-result = numeroUtente + computer;
-console.log(result);
-if (result % 2 === 0) {
-    console.log("numero pari");
+let word = prompt('Inserisci la parola');
+
+// CHIAMATA DI FUNZIONE : ESEGUO LA FUNZIONE
+let check = checkPalindroma(word);
+
+if (check === true){
+    console.log('La parola è palindroma');
 }
 else {
-    console.log("numero dispari");
-}
-if (result > computer) {
-    console.log("ha vinto l'utente");
-}
-else if (numeroUtente < computer) {
-    console.log("ha vinto il computer");
-}
-else {
-    console.log("Non ha vinto nessuno, entrambi hanno pareggiato");
+    console.log('La parola non è palindroma');
 }
 */
+
+
+function generateRandomNumber(){
+    return Math.floor(Math.random() * 5) + 1;
+}
+
+function checkEverOrOdd(number){
+   return number % 2 === 0 ? 'pari' : 'dispari';
+}
+
+let userNumber = parseInt(prompt('Inserisco il numero'));
+
+let userChoice = prompt('Inserisco la parola pari o la parola dispari');
+
+// GENERO IL NUMERO DEL COMPUTER : CHIAMO LA FUNZIONE GENERATE RANDOM NUMBER
+let pcNumber = generateRandomNumber();
+
+let sum = userNumber + pcNumber;
+console.log(sum);
+
+// CHIAMO LA FUNZIONE checkEverOdOdd PASSANDOGLI IL PARAMETRO sum
+let checkWinner = checkEverOrOdd(sum);
+
+if (checkWinner === userChoice){
+    console.log ('Hai vinto');
+}
+    else {
+        console.log ('Hai perso');
+    }
+
+
+
